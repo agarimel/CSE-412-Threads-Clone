@@ -1,4 +1,4 @@
-from flask import Flask,render_template, redirect, url_for, flash, request, abort
+from flask import Flask, render_template, redirect, url_for, flash, request, abort
 from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import login_user, logout_user, current_user, login_required
 from sqlalchemy import desc
@@ -28,7 +28,6 @@ def home():
     # add this to those routes which you want the user from going to if he/she is already logged in
     #if current_user.is_authenticated:
     #    return redirect(url_for(''))
-
     form_sign = Signup()
     form_login = Login()
 

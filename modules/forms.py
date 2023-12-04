@@ -12,12 +12,12 @@ class Signup(FlaskForm):
     password = PasswordField('Password',validators=[DataRequired(),Length(min=6)])
     signup = SubmitField('Sign up')
 
-    def validating_username(self,username):
+    def validate_username(self,username):
         user = User_mgmt.query.filter_by(username=username.data).first()
         if user:
             raise ValidationError('Username is already taken. Please choose a different one')
 
-    def validating_email(self,email):
+    def validate_email(self,email):
         user = User_mgmt.query.filter_by(email=email.data).first()
         if user:
             raise ValidationError('Account with this email ID already exists')
@@ -42,13 +42,13 @@ class UpdateProfile(FlaskForm):
     bday = DateField('Add your birthday')
     save = SubmitField('Save Changes')
 
-    def validating_username(self,username):
+    def validate_username(self,username):
         if username.data != current_user.username:
             user = User_mgmt.query.filter_by(username=username.data).first()
             if user:
                 raise ValidationError('Username is already taken. Please choose a different one')
 
-    def validating_email(self,email):
+    def validate_email(self,email):
         if email.data != current_user.email:
             user = User_mgmt.query.filter_by(email=email.data).first()
             if user:
