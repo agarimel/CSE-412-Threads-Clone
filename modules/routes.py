@@ -180,7 +180,7 @@ def delete_account(account_id):
 @app.route('/dashboard',methods=['GET','POST'])
 @login_required
 def dashboard():
-    user_tweet = createTweet()
+#    user_tweet = createTweet()
     if user_tweet.validate_on_submit():
 
         x = datetime.datetime.now()
@@ -283,11 +283,12 @@ def bookmarks():
 def repost(post_id):
 
     post = Post.query.get_or_404(post_id)
-    new_tweet = createTweet()
+#    new_tweet = createTweet()
 
     if new_tweet.validate_on_submit():
 
         x = datetime.datetime.now()
+        currentTime = str(x.strftime("%d")) +" "+ str(x.strftime("%B")) +"'"+ str(x.strftime("%y")) + " "+ str(x.strftime("%I")) +":"+ str(x.strftime("%M")) +" "+ str(x.strftime("%p"))
         currentTime = str(x.strftime("%d")) +" "+ str(x.strftime("%B")) +"'"+ str(x.strftime("%y")) + " "+ str(x.strftime("%I")) +":"+ str(x.strftime("%M")) +" "+ str(x.strftime("%p"))
 
         repost = Repost(tweet_id=post.id,user_id=current_user.id,repost_stamp=currentTime,repost_text=new_tweet.tweet.data)
