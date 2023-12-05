@@ -1,16 +1,17 @@
-# Fullstack Twitter Clone
+# Threads Clone
 
-Made using the python framework Flask, this is a frontend + backend clone of twitter. Of course, it does not have ALL the functionalities Twitter has, but it can do the functions that are quintescential to Twitter, namely:
+
+Built with the Flask framework in Python, this project is a replica of Threads encompassing both front-end and back-end components. While it may not feature all the functionalities of Threads, it adeptly performs the essential functions integral to Threads, specifically:
 
 1. Login and logout functionalities with a login and cookie manager system.
 2. Creating own account and update and customize (with setting own profile pictures and image management system).
-3. CRUD operations on all your tweets.
-4. Retweeting other perople's tweets.
+3. CRUD operations on all your threads.
+4. Reposting other perople's threads.
 5. Looking up other users profile.
 
 ## Screenshots
 
-Have tried to keep the UI as similiar as that of Twitter. Is not mobile responsive yet so is better to view it in landscape on laptop or desktop. The reason this hasn't been done yet is that this project's primary purpose was not to create a fronend site but rather create a fully functional generic social media website
+Strived to uphold a UI reminiscent of Threads. Nevertheless, it presently lacks mobile responsiveness, making landscape mode preferable when viewed on a laptop or desktop. This omission is attributed to the project's primary focus, which centers around the creation of a fully functional, generic social media website, rather than prioritizing the development of a frontend site.
 
 
 Welcome login/signup page
@@ -32,7 +33,7 @@ The Retweets have a different table that the Posts as they point to instances wi
     Post.id --> {ori_post} --> Retweet.tweet_id
     User.id --> {retwitter} --> Retweet.user_id
 
-The Timelinr table keeps track of all the posts and the retweets that were created since day zero. Their relationship is given as:
+The Timeline table keeps track of all the posts and the reposts that were created since day zero. Their relationship is given as:
 
     Post.id --> {from_post} --> Timeline.post_id
     Retweet.id --> {from_retweet} --> Timeline.retweet_id
@@ -58,7 +59,7 @@ __To Access the database in more detail, go [here](https://dbdiagram.io/d/5f7185
 
 1. The database has been built on SQLite browser using SQLAlchemy so is not currently scalabe. But due to Flask's upwards compatibility, can be shifted to PostgreSQL whenever needed.
 2. The login management system hashshes the passwords and follows a strict cookie management and uses flask_login_manager to time the user sessions and hence provides intermediate level of protection.
-3. Built using a virtual environmen so can be easily downloaded and run on your local machine.
+3. Built using a virtual environment so can be easily downloaded and run on your local machine.
 
 ### To run on your machine
 
